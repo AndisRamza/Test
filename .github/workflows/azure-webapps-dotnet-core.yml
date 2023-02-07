@@ -87,7 +87,7 @@ jobs:
       - uses: azure/arm-deploy@v1
         with:
           resourceGroupName: myResourceGroupCLI
-          template: src/Infrastructure/webapp.json
+          template: ./src/Infrastructure/webapp.json
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
