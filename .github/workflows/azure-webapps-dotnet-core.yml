@@ -86,8 +86,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: azure/arm-deploy@v1
         with:
-          resourceGroupName: github-action-arm-rg
-          template: ./azuredeploy.json
+          resourceGroupName: myResourceGroupCLI
+          template: ./Infrastructure/webapp.json
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
