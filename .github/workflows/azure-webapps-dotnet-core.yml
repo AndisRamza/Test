@@ -80,7 +80,14 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-
+      - uses: actions/checkout@master
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: myResourceGroupCLI
+          template: './Infrastructure/webapp.json'
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
